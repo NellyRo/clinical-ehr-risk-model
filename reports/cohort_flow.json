@@ -1,0 +1,59 @@
+{
+  "flow": [
+    {
+      "step": "All ICU stays",
+      "n_stays": 140,
+      "n_patients": 100
+    },
+    {
+      "step": "First ICU stay per patient",
+      "n_stays": 100,
+      "n_patients": 100
+    },
+    {
+      "step": "Age >= 18 at ICU admission",
+      "n_stays": 100,
+      "n_patients": 100
+    },
+    {
+      "step": "ICU LOS >= 24h and alive at hour 24",
+      "n_stays": 85,
+      "n_patients": 85
+    }
+  ],
+  "n_final": 85,
+  "outcomes": {
+    "mortality": {
+      "events": 7,
+      "prevalence": 0.0824
+    },
+    "prolonged_los": {
+      "events": 40,
+      "prevalence": 0.4706
+    }
+  },
+  "lab_missingness_pct": {
+    "creatinine": 0.0,
+    "lactate": 34.1,
+    "wbc": 0.0,
+    "hemoglobin": 0.0,
+    "sodium": 0.0,
+    "potassium": 0.0,
+    "platelets": 0.0
+  },
+  "comorbidity_prevalence_pct": {
+    "dx_sepsis": 16.5,
+    "dx_renal_failure": 35.3,
+    "dx_heart_failure": 20.0,
+    "dx_diabetes": 30.6,
+    "dx_copd": 12.9,
+    "dx_liver_disease": 10.6,
+    "dx_malignancy": 14.1
+  },
+  "age_median_iqr": [
+    63.0,
+    51.0,
+    75.0
+  ],
+  "male_pct": 54.1
+}

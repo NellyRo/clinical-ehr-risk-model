@@ -1,0 +1,351 @@
+{
+  "generated_utc": "2026-11-26T20:43:21+00:00",
+  "dataset": "MIMIC-IV Clinical Database Demo v2.2 (PhysioNet, ODbL)",
+  "prediction_time": "ICU intime + 24 h",
+  "cohort": {
+    "n_stays": 85,
+    "n_patients": 85,
+    "n_features_raw": 39
+  },
+  "validation": {
+    "scheme": "repeated StratifiedGroupKFold (groups=subject_id)",
+    "n_folds": 5,
+    "n_repeats": 20,
+    "metric_aggregation": "pooled out-of-fold per repeat; mean/sd across repeats",
+    "ci95": "percentile bootstrap (1000 resamples) of repeat-1 OOF predictions",
+    "threshold": "training-fold outcome prevalence"
+  },
+  "targets": {
+    "mortality": {
+      "label": "In-hospital mortality",
+      "events": 7,
+      "prevalence": 0.0824,
+      "models": {
+        "logreg": {
+          "auroc": {
+            "mean": 0.5762,
+            "sd": 0.076,
+            "ci95_bootstrap": [
+              0.2636,
+              0.813
+            ]
+          },
+          "pr_auc": {
+            "mean": 0.1525,
+            "sd": 0.0463,
+            "ci95_bootstrap": [
+              0.0415,
+              0.3284
+            ]
+          },
+          "brier": {
+            "mean": 0.0902,
+            "sd": 0.0074,
+            "ci95_bootstrap": [
+              0.0444,
+              0.1505
+            ]
+          },
+          "sensitivity": {
+            "mean": 0.4071,
+            "sd": 0.1412,
+            "ci95_bootstrap": [
+              0.0,
+              0.8333
+            ]
+          },
+          "specificity": {
+            "mean": 0.7692,
+            "sd": 0.0199,
+            "ci95_bootstrap": [
+              0.679,
+              0.8553
+            ]
+          },
+          "ppv": {
+            "mean": 0.1366,
+            "sd": 0.0474,
+            "ci95_bootstrap": [
+              0.0,
+              0.3104
+            ]
+          },
+          "npv": {
+            "mean": 0.9354,
+            "sd": 0.015,
+            "ci95_bootstrap": [
+              0.875,
+              0.9851
+            ]
+          }
+        },
+        "lightgbm": {
+          "auroc": {
+            "mean": 0.5838,
+            "sd": 0.0696,
+            "ci95_bootstrap": [
+              0.2564,
+              0.8025
+            ]
+          },
+          "pr_auc": {
+            "mean": 0.1645,
+            "sd": 0.0581,
+            "ci95_bootstrap": [
+              0.0393,
+              0.5111
+            ]
+          },
+          "brier": {
+            "mean": 0.0826,
+            "sd": 0.0059,
+            "ci95_bootstrap": [
+              0.0357,
+              0.1411
+            ]
+          },
+          "sensitivity": {
+            "mean": 0.2429,
+            "sd": 0.1235,
+            "ci95_bootstrap": [
+              0.0,
+              0.6667
+            ]
+          },
+          "specificity": {
+            "mean": 0.8673,
+            "sd": 0.027,
+            "ci95_bootstrap": [
+              0.8108,
+              0.95
+            ]
+          },
+          "ppv": {
+            "mean": 0.1446,
+            "sd": 0.0807,
+            "ci95_bootstrap": [
+              0.0,
+              0.4444
+            ]
+          },
+          "npv": {
+            "mean": 0.9273,
+            "sd": 0.0118,
+            "ci95_bootstrap": [
+              0.8684,
+              0.9855
+            ]
+          }
+        }
+      },
+      "selected_model": "lightgbm"
+    },
+    "prolonged_los": {
+      "label": "ICU LOS > 3 days",
+      "events": 40,
+      "prevalence": 0.4706,
+      "models": {
+        "logreg": {
+          "auroc": {
+            "mean": 0.6742,
+            "sd": 0.0234,
+            "ci95_bootstrap": [
+              0.5676,
+              0.7978
+            ]
+          },
+          "pr_auc": {
+            "mean": 0.678,
+            "sd": 0.0283,
+            "ci95_bootstrap": [
+              0.5648,
+              0.8378
+            ]
+          },
+          "brier": {
+            "mean": 0.2293,
+            "sd": 0.0096,
+            "ci95_bootstrap": [
+              0.1792,
+              0.2625
+            ]
+          },
+          "sensitivity": {
+            "mean": 0.615,
+            "sd": 0.0338,
+            "ci95_bootstrap": [
+              0.4722,
+              0.7756
+            ]
+          },
+          "specificity": {
+            "mean": 0.6911,
+            "sd": 0.0287,
+            "ci95_bootstrap": [
+              0.5455,
+              0.814
+            ]
+          },
+          "ppv": {
+            "mean": 0.6391,
+            "sd": 0.0287,
+            "ci95_bootstrap": [
+              0.5,
+              0.7908
+            ]
+          },
+          "npv": {
+            "mean": 0.669,
+            "sd": 0.0239,
+            "ci95_bootstrap": [
+              0.5319,
+              0.8077
+            ]
+          }
+        },
+        "lightgbm": {
+          "auroc": {
+            "mean": 0.6263,
+            "sd": 0.0328,
+            "ci95_bootstrap": [
+              0.5415,
+              0.7903
+            ]
+          },
+          "pr_auc": {
+            "mean": 0.6629,
+            "sd": 0.0397,
+            "ci95_bootstrap": [
+              0.5767,
+              0.8452
+            ]
+          },
+          "brier": {
+            "mean": 0.2534,
+            "sd": 0.0144,
+            "ci95_bootstrap": [
+              0.1865,
+              0.2851
+            ]
+          },
+          "sensitivity": {
+            "mean": 0.585,
+            "sd": 0.0469,
+            "ci95_bootstrap": [
+              0.5,
+              0.8001
+            ]
+          },
+          "specificity": {
+            "mean": 0.6456,
+            "sd": 0.0651,
+            "ci95_bootstrap": [
+              0.5777,
+              0.8333
+            ]
+          },
+          "ppv": {
+            "mean": 0.5965,
+            "sd": 0.0575,
+            "ci95_bootstrap": [
+              0.5151,
+              0.8065
+            ]
+          },
+          "npv": {
+            "mean": 0.6355,
+            "sd": 0.0458,
+            "ci95_bootstrap": [
+              0.5455,
+              0.8334
+            ]
+          }
+        }
+      },
+      "selected_model": "logreg"
+    }
+  },
+  "sensitivity_analysis_no_icd_features": {
+    "description": "Same CV without discharge-coded ICD comorbidity flags (labs + demographics only); 10 repeats; mean of pooled-OOF metrics",
+    "results": {
+      "mortality": {
+        "logreg": {
+          "auroc": 0.5647,
+          "pr_auc": 0.1529,
+          "brier": 0.0924
+        },
+        "lightgbm": {
+          "auroc": 0.6035,
+          "pr_auc": 0.1956,
+          "brier": 0.0802
+        }
+      },
+      "prolonged_los": {
+        "logreg": {
+          "auroc": 0.6363,
+          "pr_auc": 0.6251,
+          "brier": 0.2429
+        },
+        "lightgbm": {
+          "auroc": 0.5885,
+          "pr_auc": 0.6217,
+          "brier": 0.2667
+        }
+      }
+    }
+  },
+  "top_features": {
+    "mortality": {
+      "logreg": {
+        "dx_sepsis": 0.3045,
+        "potassium_min": 0.2767,
+        "lactate_min": 0.1954,
+        "missing_lactate_min": -0.1659,
+        "missing_lactate_max": -0.1659,
+        "missing_lactate_mean": -0.1659,
+        "potassium_count": -0.1607,
+        "dx_renal_failure": 0.1566,
+        "potassium_mean": 0.1454,
+        "age": 0.1343
+      },
+      "lightgbm": {
+        "platelets_min": 0.1442,
+        "potassium_max": 0.0855,
+        "age": 0.0818,
+        "wbc_max": 0.0777,
+        "platelets_max": 0.066,
+        "creatinine_max": 0.0604,
+        "lactate_max": 0.0477,
+        "creatinine_min": 0.0476,
+        "creatinine_mean": 0.0459,
+        "sodium_max": 0.0443
+      }
+    },
+    "prolonged_los": {
+      "logreg": {
+        "dx_renal_failure": 0.4428,
+        "sodium_min": 0.2918,
+        "dx_heart_failure": 0.2821,
+        "lactate_min": 0.2372,
+        "potassium_count": -0.2197,
+        "lactate_count": 0.202,
+        "dx_sepsis": 0.1785,
+        "missing_lactate_max": -0.1781,
+        "missing_lactate_mean": -0.1781,
+        "missing_lactate_min": -0.1781
+      },
+      "lightgbm": {
+        "dx_renal_failure": 0.1571,
+        "lactate_count": 0.0737,
+        "potassium_mean": 0.0595,
+        "sodium_mean": 0.0525,
+        "hemoglobin_max": 0.0493,
+        "potassium_count": 0.0457,
+        "lactate_min": 0.0439,
+        "potassium_min": 0.0424,
+        "platelets_min": 0.0383,
+        "missing_lactate_min": 0.037
+      }
+    }
+  }
+}

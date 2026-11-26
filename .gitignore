@@ -1,0 +1,15 @@
+# Data: raw MIMIC-IV Demo tables and derived cohort are reproducible via src/
+data/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
